@@ -1,0 +1,19 @@
+ETOILE FINAL
+
+IMPORTANTE: esta versión ya incluye el carrito por producto y el formato correcto de precios.
+
+1. Abre ESTE index.html para ver la tienda.
+2. Abre ESTE admin.html para administrar.
+3. No uses el index.html/admin.html de una carpeta ETOILE_v2 anterior.
+4. Si Chrome muestra la versión anterior, presiona Ctrl+F5.
+
+CARRO:
+- Cada producto disponible tiene el botón "🛒 Agregar a la cesta".
+- El contador superior aumenta al agregar.
+- La cesta permite +/- y eliminar.
+- El pedido se envía a WhatsApp 311 427 50 57.
+
+PRECIOS:
+- En el administrador puedes escribir 60000, 60.000 o 60,000.
+- La tienda muestra $60.000.
+- Esta versión migra automáticamente precios antiguos como 60 a 60.000 para evitar el error de versiones anteriores.

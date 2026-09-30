@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ÉTOILE — Belleza · Estilo · Novedades</title>
+<meta name="description" content="ÉTOILE — productos 100% originales, belleza, skincare y accesorios.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="topbar"><span>Productos 100% originales</span><span>Entrega inmediata</span><span>Pedidos por WhatsApp</span></div>
+<header class="header">
+  <a class="brand" href="#inicio"><span class="brand-star">✦</span><span><b>ÉTOILE</b><small>Belleza · Estilo · Novedades</small></span></a>
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <nav id="nav"><a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#proximamente">Próximamente</a><a href="#agotados">Agotados</a></nav>
+  <div class="head-actions"><button class="cart-btn" id="cartBtn" aria-label="Abrir cesta">🛍️ <span id="cartCount">0</span></button><a class="wa-head" id="waHead" target="_blank">WhatsApp →</a></div>
+</header>
+<main id="inicio">
+<section class="hero"><div class="hero-copy"><p class="eyebrow">BELLEZA · ESTILO · NOVEDADES</p><h1>Tu estilo<br>en cada detalle.</h1><p>Productos originales, marcas que te gustan y novedades que llegan directo para ti.</p><a class="btn" href="#productos">Ver productos →</a></div><div class="hero-art"><div class="orb"></div><div class="hero-card"><span>100%</span><small>ORIGINALES</small></div><div class="hero-line"></div></div></section>
+<section class="trust"><div><strong>✓</strong><span><b>100% originales</b><small>Productos seleccionados</small></span></div><div><strong>⚡</strong><span><b>Entrega inmediata</b><small>En productos disponibles</small></span></div><div><strong>✦</strong><span><b>Nuevos ingresos</b><small>Próximamente en llegar</small></span></div></section>
+<section id="productos" class="section"><div class="section-head"><div><p class="eyebrow">CATÁLOGO</p><h2>Disponibles ahora</h2></div><div class="filters"><button class="filter active" data-cat="Todos">Todos</button><button class="filter" data-cat="Belleza">Belleza</button><button class="filter" data-cat="Skincare">Skincare</button><button class="filter" data-cat="Accesorios">Accesorios</button></div></div><div id="productGrid" class="grid"></div></section>
+<section id="proximamente" class="section soft"><div class="section-head"><div><p class="eyebrow">PRÓXIMAMENTE</p><h2>En camino</h2><p class="section-sub">Productos que ya vienen de camino.</p></div></div><div id="soonGrid" class="grid"></div></section>
+<section id="agotados" class="section"><div class="section-head"><div><p class="eyebrow">HISTORIAL</p><h2>Agotados</h2><p class="section-sub">Productos vendidos o sin existencias. Cuando vuelvan, puedes cambiarlos a Disponible desde el panel.</p></div></div><div id="soldGrid" class="grid"></div></section>
+<section class="cta"><div><p class="eyebrow">¿VISTE ALGO QUE TE GUSTA?</p><h2>Escríbenos y haz tu pedido.</h2><p>Te confirmamos disponibilidad, precio y entrega.</p></div><a class="btn dark" id="waCta" target="_blank">Hablar por WhatsApp →</a></section>
+</main>
+<div id="cartDrawer" class="cart-drawer"><div id="cartBackdrop" class="cart-backdrop"></div><aside class="cart-panel"><div class="cart-head"><div><p class="eyebrow">TU PEDIDO</p><h2>Mi cesta</h2></div><button id="cartClose" class="cart-close">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-foot"><div><span>Total estimado</span><strong id="cartTotal">$ 0</strong></div><a id="cartWa" class="btn dark" target="_blank">Preguntar por mi pedido →</a><small>El pedido se confirma por WhatsApp antes de pagar.</small></div></aside></div>
+<footer><div class="brand"><span class="brand-star">✦</span><span><b>ÉTOILE</b><small>Belleza · Estilo · Novedades</small></span></div><p>Hecho en Colombia · © <span id="year"></span> ÉTOILE</p><a href="admin.html" class="admin-link">Administrar catálogo</a></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="supabase-db.js"></script><script src="data.js"></script><script src="app.js"></script>
+</body></html>
