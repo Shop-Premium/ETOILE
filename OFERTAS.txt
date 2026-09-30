@@ -1,0 +1,7 @@
+ÉTOILE — OFERTAS
+
+1. En Supabase ejecuta el archivo SUPABASE_OFERTAS.sql incluido junto al ZIP.
+2. Después sube este proyecto a GitHub.
+3. En Administrar catálogo, al bajar el precio de un producto, el sistema conserva automáticamente el precio anterior y muestra OFERTA.
+4. También puedes escribir manualmente el precio anterior.
+5. Si precio anterior <= precio actual, no se muestra oferta.

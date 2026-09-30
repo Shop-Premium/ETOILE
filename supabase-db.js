@@ -3,21 +3,25 @@
   const KEY='etoile_products_v2';
   const WA_KEY='etoile_whatsapp_v1';
   function normalize(p){
-    let price=Number(p.price)||0;
+    const rawPrice=p.price??p.precio??0;
+    let price=Number(String(rawPrice).replace(/[^0-9.-]/g,''))||0;
     if(price>0&&price<1000)price*=1000;
+    const rawPrevious=p.previousPrice??p.precio_anterior??0;
+    let previousPrice=Number(String(rawPrevious).replace(/[^0-9.-]/g,''))||0;
+    if(previousPrice>0&&previousPrice<1000)previousPrice*=1000;
     const rawCat=String(p.category||p.categoria||'').trim().toLowerCase();
     const category=rawCat==='belleza'?'Belleza':rawCat==='skincare'?'Skincare':rawCat==='accesorios'?'Accesorios':(p.category||p.categoria||'Belleza');
     const rawStatus=String(p.status||p.estado||'disponible').trim().toLowerCase();
     const status=rawStatus==='proximamente'?'proximamente':rawStatus==='agotado'?'agotado':'disponible';
-    return {id:String(p.id),name:String(p.name??p.nombre??''),brand:String(p.brand??p.marca??''),category,price, status, image:String(p.image??p.imagen_url??''),description:String(p.description??p.descripcion??''),quantity:Math.max(0,Number.isFinite(Number(p.quantity??p.cantidad))?Number(p.quantity??p.cantidad):0)};
+    return {id:String(p.id),name:String(p.name??p.nombre??''),brand:String(p.brand??p.marca??''),category,price,previousPrice, status, image:String(p.image??p.imagen_url??''),description:String(p.description??p.descripcion??''),quantity:Math.max(0,Number.isFinite(Number(p.quantity??p.cantidad))?Number(p.quantity??p.cantidad):0)};
   }
   function toRemote(p){
     const x=normalize(p);
-    return {id:x.id,nombre:x.name,marca:x.brand,categoria:x.category,precio:x.price,imagen_url:x.image,descripcion:x.description,cantidad:x.quantity,estado:x.status};
+    return {id:x.id,nombre:x.name,marca:x.brand,categoria:x.category,precio:x.price,precio_anterior:x.previousPrice||null,imagen_url:x.image,descripcion:x.description,cantidad:x.quantity,estado:x.status};
   }
   function fromRemote(r){return normalize(r)}
   async function getProducts(){
-    const {data,error}=await client.from('Productos').select('id,nombre,marca,categoria,precio,imagen_url,descripcion,cantidad,estado').order('created_at',{ascending:true});
+    const {data,error}=await client.from('Productos').select('id,nombre,marca,categoria,precio,precio_anterior,imagen_url,descripcion,cantidad,estado').order('created_at',{ascending:true});
     if(error)throw error;
     return (data||[]).map(fromRemote);
   }
